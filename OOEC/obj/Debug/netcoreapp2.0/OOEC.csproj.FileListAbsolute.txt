@@ -1,0 +1,12 @@
+C:\Users\lucky\source\repos\OOECAPI\OOEC\bin\Debug\netcoreapp2.0\OOEC.deps.json
+C:\Users\lucky\source\repos\OOECAPI\OOEC\bin\Debug\netcoreapp2.0\OOEC.runtimeconfig.json
+C:\Users\lucky\source\repos\OOECAPI\OOEC\bin\Debug\netcoreapp2.0\OOEC.runtimeconfig.dev.json
+C:\Users\lucky\source\repos\OOECAPI\OOEC\bin\Debug\netcoreapp2.0\OOEC.dll
+C:\Users\lucky\source\repos\OOECAPI\OOEC\bin\Debug\netcoreapp2.0\OOEC.pdb
+C:\Users\lucky\source\repos\OOECAPI\OOEC\obj\Debug\netcoreapp2.0\OOEC.csprojResolveAssemblyReference.cache
+C:\Users\lucky\source\repos\OOECAPI\OOEC\obj\Debug\netcoreapp2.0\OOEC.csproj.CoreCompileInputs.cache
+C:\Users\lucky\source\repos\OOECAPI\OOEC\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\lucky\source\repos\OOECAPI\OOEC\obj\Debug\netcoreapp2.0\OOEC.AssemblyInfoInputs.cache
+C:\Users\lucky\source\repos\OOECAPI\OOEC\obj\Debug\netcoreapp2.0\OOEC.AssemblyInfo.cs
+C:\Users\lucky\source\repos\OOECAPI\OOEC\obj\Debug\netcoreapp2.0\OOEC.dll
+C:\Users\lucky\source\repos\OOECAPI\OOEC\obj\Debug\netcoreapp2.0\OOEC.pdb

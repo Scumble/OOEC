@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOECAPI", "OOECAPI\OOECAPI.csproj", "{ACC44D72-8CE8-4953-9CB5-120052FB6299}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOEC.WebUI", "OOEC\OOEC.WebUI.csproj", "{574BDB6C-B8F5-4491-9217-3B9B54287528}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACC44D72-8CE8-4953-9CB5-120052FB6299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACC44D72-8CE8-4953-9CB5-120052FB6299}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACC44D72-8CE8-4953-9CB5-120052FB6299}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACC44D72-8CE8-4953-9CB5-120052FB6299}.Release|Any CPU.Build.0 = Release|Any CPU
+		{574BDB6C-B8F5-4491-9217-3B9B54287528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{574BDB6C-B8F5-4491-9217-3B9B54287528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{574BDB6C-B8F5-4491-9217-3B9B54287528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{574BDB6C-B8F5-4491-9217-3B9B54287528}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CA4079F7-2F04-4063-A0A1-6BD7D1D47C5D}
+	EndGlobalSection
+EndGlobal
