@@ -8,6 +8,7 @@ namespace OOECAPI.Interfaces
 {
     public interface ITeamRepository
     {
+        Team GetById(int? teamId);
         IEnumerable<Team> GetAll { get; }
         void Create(Team team);
         void Edit(Team team);

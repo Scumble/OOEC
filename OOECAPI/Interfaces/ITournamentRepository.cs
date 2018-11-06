@@ -8,6 +8,7 @@ namespace OOECAPI.Interfaces
 {
     public interface ITournamentRepository
     {
+        Tournament GetById(int? tournamentId);
         IEnumerable<Tournament> GetAll { get; }
         void Create(Tournament tournament);
         void Edit(Tournament tournament);

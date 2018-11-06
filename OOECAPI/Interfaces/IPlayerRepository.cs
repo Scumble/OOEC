@@ -8,6 +8,7 @@ namespace OOECAPI.Interfaces
 {
     public interface IPlayerRepository
     {
+        Player GetById(int? playerId);
         IEnumerable<Player> GetAll { get; }
         void Create(Player player);
         void Edit(Player player);

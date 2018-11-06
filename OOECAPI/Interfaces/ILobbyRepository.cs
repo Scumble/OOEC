@@ -8,6 +8,7 @@ namespace OOECAPI.Interfaces
 {
     public interface ILobbyRepository
     {
+        Lobby GetById(int? lobbyId);
         IEnumerable<Lobby> GetAll { get; }
         void Create(Lobby lobbies);
         void Edit(Lobby lobbies);
