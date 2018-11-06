@@ -26,6 +26,19 @@ namespace OOECAPI.Controllers
         {
             return Ok(_teamRepository.GetAll);
         }
+        [Produces("application/json")]
+        [HttpGet("getbyid/{id}")]
+        public IActionResult GetById(int id)
+        {
+            try
+            {
+                return Ok(_teamRepository.GetById(id));
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
 
         [Produces("application/json")]
         [Consumes("application/json")]
@@ -34,7 +47,11 @@ namespace OOECAPI.Controllers
         {
             try
             {
-                    _teamRepository.Create(team);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                _teamRepository.Create(team);
                     return Ok(team);
                 
             }
@@ -51,6 +68,10 @@ namespace OOECAPI.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
                 _teamRepository.Edit(team);
                 return Ok(team);
             }

@@ -23,7 +23,19 @@ namespace OOECAPI.Controllers
         {
             return Ok(_lobbyRepository.GetAll);
         }
-
+        [Produces("application/json")]
+        [HttpGet("getbyid/{id}")]
+        public IActionResult GetById(int id)
+        {
+            try
+            {
+                return Ok(_lobbyRepository.GetById(id));
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
         [Produces("application/json")]
         [Consumes("application/json")]
         [HttpPost("create")]
@@ -31,6 +43,10 @@ namespace OOECAPI.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
                 _lobbyRepository.Create(lobby);
                 return Ok(lobby);
 
@@ -48,6 +64,10 @@ namespace OOECAPI.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
                 _lobbyRepository.Edit(lobby);
                 return Ok(lobby);
             }

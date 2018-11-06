@@ -17,7 +17,19 @@ namespace OOECAPI.Controllers
         {
             _tournamentRepository = tournamentRepository;
         }
-
+        [Produces("application/json")]
+        [HttpGet("getbyid/{id}")]
+        public IActionResult GetById(int id)
+        {
+            try
+            {
+                return Ok(_tournamentRepository.GetById(id));
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
         [Produces("application/json")]
         [HttpGet]
         public IActionResult Get()
@@ -32,6 +44,10 @@ namespace OOECAPI.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
                 _tournamentRepository.Create(tournament);
                 return Ok(tournament);
 
@@ -49,6 +65,10 @@ namespace OOECAPI.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
                 _tournamentRepository.Edit(tournament);
                 return Ok(tournament);
             }
