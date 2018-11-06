@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using OOECAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OOECAPI.Data
 {
-    public class Context:DbContext
+    public class Context: IdentityDbContext<AppUser>
     {
       
         public Context(DbContextOptions<Context> options):base(options)
@@ -19,6 +20,7 @@ namespace OOECAPI.Data
         public DbSet<Lobby> Lobbies { get; set; }
         public DbSet<Tournament> Tournaments { get; set; }
         public DbSet<GamePlayerInfo> gamePlayerInfo { get; set; }
+        public new DbSet<User> Users { get; set; }
 
     }
 }
