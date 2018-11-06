@@ -14,7 +14,6 @@ namespace OOECAPI.Services
         public PlayerRepository(Context context)
         {
             _context = context;
-
         }
         public IEnumerable<Player> GetAll
         {
@@ -53,6 +52,15 @@ namespace OOECAPI.Services
                 _context.SaveChanges();
             }
             return dbEntry;
+        }
+        public Player GetById(int? playerid)
+        {
+            Player player = _context.Players.Find(playerid);
+            if (player == null)
+            {
+                return null;
+            }
+            return player;
         }
 
     }

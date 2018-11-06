@@ -56,5 +56,14 @@ namespace OOECAPI.Services
             }
             return dbEntry;
         }
+        public Tournament GetById(int? tournamentId)
+        {
+            Tournament tournament = _context.Tournaments.Find(tournamentId);
+            if (tournament == null)
+            {
+                return null;
+            }
+            return tournament;
+        }
     }
 }

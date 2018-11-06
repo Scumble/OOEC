@@ -31,8 +31,7 @@ namespace OOECAPI.Services
                  if (dbEntry != null)
                  {
                      dbEntry.Name = team.Name;
-                     dbEntry.NumberOfPlayers = team.NumberOfPlayers;
-                   
+                     dbEntry.NumberOfPlayers = team.NumberOfPlayers;          
                  }
              }
              _context.SaveChanges();
@@ -53,6 +52,15 @@ namespace OOECAPI.Services
                 _context.SaveChanges();
             }
             return dbEntry;
+        }
+        public Team GetById(int? id)
+        {
+            Team team=_context.Teams.Find(id);
+            if(team==null)
+            {
+                return null;
+            }
+            return team;
         }
     }
 }

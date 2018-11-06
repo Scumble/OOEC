@@ -55,6 +55,15 @@ namespace OOECAPI.Services
             }
             return dbEntry;
         }
+        public Lobby GetById(int? lobbyid)
+        {
+            Lobby lobby = _context.Lobbies.Find(lobbyid);
+            if (lobby == null)
+            {
+                return null;
+            }
+            return lobby ;
+        }
 
     }
 }
