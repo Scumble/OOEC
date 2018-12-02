@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OOECAPI.Interfaces;
 using OOECAPI.Models;
@@ -17,25 +18,47 @@ namespace OOECAPI.Controllers
         {
             _lobbyRepository = lobbyRepository;
         }
+
+        [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [HttpGet]
         public IActionResult Get()
         {
             return Ok(_lobbyRepository.GetAll);
         }
+
+        [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [HttpGet("getbyid/{id}")]
-        public IActionResult GetById(int id)
+        public IActionResult GetLobbyById(long id)
         {
             try
             {
-                return Ok(_lobbyRepository.GetById(id));
+                return Ok(_lobbyRepository.GetLobbyById(id));
             }
             catch
             {
                 return BadRequest();
             }
         }
+
+        [Authorize(Policy = "ApiUser")]
+        [Produces("application/json")]
+        [Consumes("application/json")]
+        [HttpGet("getcreatedbytournament/{tournamentId}")]
+        public async Task<IActionResult> GetCreatedByTournament(long tournamentId)
+        {
+            try
+            {
+                return Ok(await _lobbyRepository.GetCreatedByTournament(tournamentId));
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [Consumes("application/json")]
         [HttpPost("create")]
@@ -57,6 +80,7 @@ namespace OOECAPI.Controllers
             }
         }
 
+        [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [Consumes("application/json")]
         [HttpPut("update")]
@@ -77,6 +101,7 @@ namespace OOECAPI.Controllers
             }
         }
 
+        [Authorize(Policy = "ApiUser")]
         [HttpDelete("delete/{id}")]
         public IActionResult Delete(int id)
         {

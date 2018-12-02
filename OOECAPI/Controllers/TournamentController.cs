@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OOECAPI.Interfaces;
 using OOECAPI.Models;
+using OOECAPI.ViewModels;
 
 namespace OOECAPI.Controllers
 {
@@ -17,19 +19,38 @@ namespace OOECAPI.Controllers
         {
             _tournamentRepository = tournamentRepository;
         }
+
+        [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
-        [HttpGet("getbyid/{id}")]
-        public IActionResult GetById(int id)
+        [HttpGet("get-tournaments-by-id/{id}")]
+        public IActionResult GetTournamentsById(long id)
         {
             try
             {
-                return Ok(_tournamentRepository.GetById(id));
+                return Ok(_tournamentRepository.GetTournamentById(id));
             }
             catch
             {
                 return BadRequest();
             }
         }
+
+        [Authorize(Policy = "ApiUser")]
+        [Produces("application/json")]
+        [HttpGet("getcreatedbyuser")]
+        public async Task<IActionResult> GetCreatedByUser()
+        {
+            try
+            {
+                return Ok(await _tournamentRepository.GetCreatedByUser());
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [HttpGet]
         public IActionResult Get()
@@ -37,6 +58,7 @@ namespace OOECAPI.Controllers
             return Ok(_tournamentRepository.GetAll);
         }
 
+        [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [Consumes("application/json")]
         [HttpPost("create")]
@@ -50,7 +72,6 @@ namespace OOECAPI.Controllers
                 }
                 _tournamentRepository.Create(tournament);
                 return Ok(tournament);
-
             }
             catch
             {
@@ -58,6 +79,7 @@ namespace OOECAPI.Controllers
             }
         }
 
+        [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [Consumes("application/json")]
         [HttpPut("update")]
@@ -78,8 +100,9 @@ namespace OOECAPI.Controllers
             }
         }
 
+        [Authorize(Policy = "ApiUser")]
         [HttpDelete("delete/{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(long id)
         {
             try
             {

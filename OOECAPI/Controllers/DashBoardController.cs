@@ -41,12 +41,31 @@ namespace OOECAPI.Controllers
                 user.Identity.FirstName,
                 user.Identity.LastName,
                 user.Identity.PictureUrl,
-                user.Identity.FacebookId,
                 user.Location,
                 user.Locale,
                 user.Gender
             });
         }
-     
+        [Authorize(Policy = "Admin")]
+        [HttpGet]
+        public async Task<IActionResult> HomeAdmin()
+        {
+            // retrieve the user info
+            //HttpContext.User
+            var userId = _caller.Claims.Single(c => c.Type == "password");
+            var user = await _appDbContext.Users.Include(c => c.Identity).SingleAsync(c => c.Identity.Id == userId.Value);
+
+            return new OkObjectResult(new
+            {
+                Message = "This is admin!",
+                user.Identity.FirstName,
+                user.Identity.LastName,
+                user.Identity.PictureUrl,
+                user.Location,
+                user.Locale,
+                user.Gender
+            });
+        }
+
     }
 }

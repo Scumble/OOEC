@@ -1,4 +1,5 @@
-﻿using OOECAPI.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using OOECAPI.Data;
 using OOECAPI.Interfaces;
 using OOECAPI.Models;
 using System;
@@ -14,11 +15,28 @@ namespace OOECAPI.Services
         public LobbyRepository(Context context)
         {
             _context = context;
-
         }
         public IEnumerable<Lobby> GetAll
         {
             get { return _context.Lobbies; }
+        }
+        public async Task<List<Lobby>> GetCreatedByTournament(long? tournamentId)
+        {
+            /* var lobbies = _context.Lobbies.Join(_context.Tournaments,
+                 x => x.TournamentId,
+                 y => y.Id,
+                 (x, y) => new Lobby
+                 {
+                     Id=x.Id,
+                     DateStart = x.DateStart,
+                     ScoreWinner = x.ScoreWinner,
+                     ScoreLoser = x.ScoreLoser,
+                     Winner = x.Winner,
+                     TournamentId = y.Id
+                 });*/
+        
+            return await _context.Lobbies.Where(x => x.TournamentId == tournamentId).ToListAsync();
+       
         }
         public void Create(Lobby lobby)
         {
@@ -45,7 +63,7 @@ namespace OOECAPI.Services
                 Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();
         }
-        public Lobby Delete(int? lobbyId)
+        public Lobby Delete(long? lobbyId)
         {
             Lobby dbEntry = _context.Lobbies.Find(lobbyId);
             if (dbEntry != null)
@@ -55,7 +73,7 @@ namespace OOECAPI.Services
             }
             return dbEntry;
         }
-        public Lobby GetById(int? lobbyid)
+        public Lobby GetLobbyById(long? lobbyid)
         {
             Lobby lobby = _context.Lobbies.Find(lobbyid);
             if (lobby == null)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OOECAPI.Interfaces;
@@ -19,13 +20,14 @@ namespace OOECAPI.Controllers
         {
             _teamRepository = teamRepository;
         }
-
+        [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [HttpGet]
         public IActionResult Get()
         {
             return Ok(_teamRepository.GetAll);
         }
+        [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [HttpGet("getbyid/{id}")]
         public IActionResult GetById(int id)
@@ -39,7 +41,7 @@ namespace OOECAPI.Controllers
                 return BadRequest();
             }
         }
-
+        [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [Consumes("application/json")]
         [HttpPost("create")]
@@ -60,7 +62,7 @@ namespace OOECAPI.Controllers
                 return BadRequest();
             }
         }
-
+        [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [Consumes("application/json")]
         [HttpPut("update")]
@@ -80,7 +82,7 @@ namespace OOECAPI.Controllers
                 return BadRequest();
             }
         }
-
+        [Authorize(Policy = "ApiUser")]
         [HttpDelete("delete/{id}")]
         public IActionResult Delete(int id)
         {

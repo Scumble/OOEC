@@ -44,7 +44,30 @@ namespace OOECAPI.Interfaces
 
             return encodedJwt;
         }
+        public async Task<string> GenerateEncodedTokenAdmin(string userName, ClaimsIdentity identity)
+        {
+            var claims = new[]
+         {
+                 new Claim(JwtRegisteredClaimNames.Sub, userName),
+                 new Claim(JwtRegisteredClaimNames.Jti, await _jwtOptions.JtiGenerator()),
+                 new Claim(JwtRegisteredClaimNames.Iat, ToUnixEpochDate(_jwtOptions.IssuedAt).ToString(), ClaimValueTypes.Integer64),
+                 identity.FindFirst(Helpers.Constants.Strings.JwtClaimIdentifiers.Admin),
+                 identity.FindFirst(Helpers.Constants.Strings.JwtClaimIdentifiers.Password)
+             };
 
+            // Create the JWT security token and encode it.
+            var jwt = new JwtSecurityToken(
+                issuer: _jwtOptions.Issuer,
+                audience: _jwtOptions.Audience,
+                claims: claims,
+                notBefore: _jwtOptions.NotBefore,
+                expires: _jwtOptions.Expiration,
+                signingCredentials: _jwtOptions.SigningCredentials);
+
+            var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
+
+            return encodedJwt;
+        }
         public ClaimsIdentity GenerateClaimsIdentity(string userName, string id)
         {
             return new ClaimsIdentity(new GenericIdentity(userName, "Token"), new[]
@@ -54,7 +77,17 @@ namespace OOECAPI.Interfaces
             });
 
         }
-    
+        public ClaimsIdentity GenerateClaimsIdentityAdmin(string userName,string id)
+        {
+            userName = "admin@gmail.com";
+            return new ClaimsIdentity(new GenericIdentity(userName, "Admin"), new[]
+            {
+                new Claim(Helpers.Constants.Strings.JwtClaimIdentifiers.Password, id),
+                new Claim(Helpers.Constants.Strings.JwtClaimIdentifiers.Admin, Helpers.Constants.Strings.JwtClaims.AdminAccess)
+            });
+
+        }
+
 
         /// <returns>Date converted to seconds since Unix epoch (Jan 1, 1970, midnight UTC).</returns>
         private static long ToUnixEpochDate(DateTime date)

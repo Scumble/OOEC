@@ -37,7 +37,11 @@ namespace OOECAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            var user = await _userManager.FindByNameAsync(credentials.UserName);
+            if (await _userManager.IsLockedOutAsync(user))
+            {
+                return BadRequest(Errors.AddErrorToModelState("login_failure", "User is lockedout", ModelState));
+            }
             var identity = await GetClaimsIdentity(credentials.UserName, credentials.Password);
             if (identity == null)
             {
@@ -47,7 +51,23 @@ namespace OOECAPI.Controllers
            var jwt = await Tokens.GenerateJwt(identity, _jwtFactory, credentials.UserName, _jwtOptions, new JsonSerializerSettings { Formatting = Formatting.Indented });
             return new OkObjectResult(jwt);
         }
-       
+        [HttpPost("admin")]
+        public async Task<IActionResult> Admin([FromBody]CredentialsViewModel credentials)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var identity = await GetClaimsIdentityAdmin(credentials.UserName, credentials.Password);
+            if (identity == null)
+            {
+                return BadRequest(Errors.AddErrorToModelState("login_failure", "Invalid username or password.", ModelState));
+            }
+
+            var jwt = await Tokens.GenerateJwtAdmin(identity, _jwtFactory, credentials.UserName, _jwtOptions, new JsonSerializerSettings { Formatting = Formatting.Indented });
+            return new OkObjectResult(jwt);
+        }
 
         private async Task<ClaimsIdentity> GetClaimsIdentity(string userName, string password)
         {
@@ -63,6 +83,26 @@ namespace OOECAPI.Controllers
             if (await _userManager.CheckPasswordAsync(userToVerify, password))
             {
                 return await Task.FromResult(_jwtFactory.GenerateClaimsIdentity(userName, userToVerify.Id));
+            }
+
+            // Credentials are invalid, or account doesn't exist
+            return await Task.FromResult<ClaimsIdentity>(null);
+        }
+        private async Task<ClaimsIdentity> GetClaimsIdentityAdmin(string userName, string password)
+        {
+            userName = "admin@gmail.com";
+            if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
+                return await Task.FromResult<ClaimsIdentity>(null);
+
+            // get the user to verifty
+            var userToVerify = await _userManager.FindByNameAsync(userName);
+
+            if (userToVerify == null) return await Task.FromResult<ClaimsIdentity>(null);
+
+            // check the credentials
+            if (await _userManager.CheckPasswordAsync(userToVerify, password))
+            {
+                return await Task.FromResult(_jwtFactory.GenerateClaimsIdentityAdmin(userName, userToVerify.Id));
             }
 
             // Credentials are invalid, or account doesn't exist

@@ -5,9 +5,11 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using OOECAPI.Data;
@@ -32,9 +34,29 @@ namespace OOECAPI.Controllers
             _appDbContext = appDbContext;
         }
 
-        // POST api/accounts
+        // POST api/account
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]RegistrationViewModel model)
+        {
+            //checking for model registration
+            if (!ModelState.IsValid)
+            {
+                //exception throw if model is not valid
+                return BadRequest(ModelState);
+            }
+        
+            var userIdentity = _mapper.Map<AppUser>(model);
+            //creating new user to the system
+            var result = await _userManager.CreateAsync(userIdentity, model.Password);
+            if (!result.Succeeded) return new BadRequestObjectResult(Errors.AddErrorsToModelState(result, ModelState));
+            //adding new data to database
+            await _appDbContext.Users.AddAsync(new User { IdentityId = userIdentity.Id, Location = model.Location });
+            await _appDbContext.SaveChangesAsync();
+
+            return new OkObjectResult("Account created");
+        }
+        [HttpPost("updateuser")]
+        public async Task<IActionResult> Update([FromBody]RegistrationViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -42,15 +64,15 @@ namespace OOECAPI.Controllers
             }
 
             var userIdentity = _mapper.Map<AppUser>(model);
+            userIdentity.SecurityStamp = Guid.NewGuid().ToString();
 
-            var result = await _userManager.CreateAsync(userIdentity, model.Password);
-
+            var result = await _userManager.UpdateAsync(userIdentity);
             if (!result.Succeeded) return new BadRequestObjectResult(Errors.AddErrorsToModelState(result, ModelState));
 
-            await _appDbContext.Users.AddAsync(new User { IdentityId = userIdentity.Id, Location = model.Location });
-            await _appDbContext.SaveChangesAsync();
+             _appDbContext.Users.Update(new User { IdentityId = userIdentity.Id, Location = model.Location });
+             await _appDbContext.SaveChangesAsync();
 
-            return new OkObjectResult("Account created");
+            return new OkObjectResult("Account updated");
         }
     }
 }

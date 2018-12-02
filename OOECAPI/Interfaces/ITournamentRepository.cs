@@ -1,4 +1,5 @@
 ﻿using OOECAPI.Models;
+using OOECAPI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +9,12 @@ namespace OOECAPI.Interfaces
 {
     public interface ITournamentRepository
     {
-        Tournament GetById(int? tournamentId);
+        Tournament GetTournamentById(long? tournamentId);
         IEnumerable<Tournament> GetAll { get; }
         void Create(Tournament tournament);
         void Edit(Tournament tournament);
-        Tournament Delete(int? tournamentId);
+        Tournament Delete(long? tournamentId);
+        Task<List<Tournament>> GetCreatedByUser();
+
     }
 }

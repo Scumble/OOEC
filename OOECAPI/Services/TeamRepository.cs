@@ -19,17 +19,21 @@ namespace OOECAPI.Services
      
         public IEnumerable<Team> GetAll
         {
+            //get all teams in the system
             get { return _context.Teams; }
         }
         public void Create(Team team)
         {
+            //checking id
              if (team.Id == 0)
                  _context.Teams.Add(team);
              else
              {
+                 //find the id of the each team
                  Team dbEntry = _context.Teams.Find(team.Id);
                  if (dbEntry != null)
                  {
+                    // adding new team
                      dbEntry.Name = team.Name;
                      dbEntry.NumberOfPlayers = team.NumberOfPlayers;          
                  }

@@ -25,6 +25,7 @@ using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
 using OOECAPI.Extensions;
 using Microsoft.AspNetCore.Http;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace OOECAPI
 {
@@ -52,6 +53,8 @@ namespace OOECAPI
             services.AddTransient<IPlayerRepository, PlayerRepository>();
             services.AddTransient<ITournamentRepository, TournamentRepository>();
             services.AddTransient<ILobbyRepository, LobbyRepository>();
+            services.AddTransient<IProTeamsRepository, ProTeamsRepository>();
+            services.AddTransient<IProPlayersRepository, ProPlayersRepository>();
             services.AddSingleton<IJwtFactory, JwtFactory>();
             var jwtAppSettingOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
 
@@ -95,6 +98,7 @@ namespace OOECAPI
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("ApiUser", policy => policy.RequireClaim(Constants.Strings.JwtClaimIdentifiers.Rol, Constants.Strings.JwtClaims.ApiAccess));
+                options.AddPolicy("Admin", policy => policy.RequireClaim(Constants.Strings.JwtClaimIdentifiers.Admin, Constants.Strings.JwtClaims.AdminAccess));
             });
 
             // add identity
@@ -112,7 +116,7 @@ namespace OOECAPI
 
             services.AddAutoMapper();
             services.AddMvc().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
-
+            services.AddSwaggerDocumentation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -148,6 +152,7 @@ namespace OOECAPI
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseMvc();
+            app.UseSwaggerDocumentation();
         }
     }
 }
