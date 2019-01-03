@@ -1,4 +1,5 @@
 ﻿using OOECAPI.Models;
+using OOECAPI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,11 @@ namespace OOECAPI.Interfaces
 {
     public interface ILobbyRepository
     {
-        Lobby GetLobbyById(long? lobbyId);
+        List<LobbyViewModel> GetLobbyById(int? lobbyId);
         IEnumerable<Lobby> GetAll { get; }
-        void Create(Lobby lobbies);
-        void Edit(Lobby lobbies);
-        Lobby Delete(long? lobbyId);
-        Task<List<Lobby>> GetCreatedByTournament(long? tournamentId);
+        void Create(LobbyViewModel lobbies);
+        void Edit(LobbyViewModel lobbies);
+        Lobby Delete(int? lobbyId);
+        List<LobbyViewModel> GetLobbies(long? tournamentId);
     }
 }

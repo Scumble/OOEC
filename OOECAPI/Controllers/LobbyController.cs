@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using OOECAPI.Interfaces;
 using OOECAPI.Models;
+using OOECAPI.ViewModels;
 
 namespace OOECAPI.Controllers
 {
@@ -30,11 +32,12 @@ namespace OOECAPI.Controllers
         [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [HttpGet("getbyid/{id}")]
-        public IActionResult GetLobbyById(long id)
+        public IActionResult GetLobbyById(int id)
         {
             try
             {
-                return Ok(_lobbyRepository.GetLobbyById(id));
+                var list = _lobbyRepository.GetLobbyById(id);
+                return Ok(list);
             }
             catch
             {
@@ -42,27 +45,12 @@ namespace OOECAPI.Controllers
             }
         }
 
-        [Authorize(Policy = "ApiUser")]
-        [Produces("application/json")]
-        [Consumes("application/json")]
-        [HttpGet("getcreatedbytournament/{tournamentId}")]
-        public async Task<IActionResult> GetCreatedByTournament(long tournamentId)
-        {
-            try
-            {
-                return Ok(await _lobbyRepository.GetCreatedByTournament(tournamentId));
-            }
-            catch
-            {
-                return BadRequest();
-            }
-        }
 
         [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [Consumes("application/json")]
         [HttpPost("create")]
-        public IActionResult Create([FromBody] Lobby lobby)
+        public IActionResult Create([FromBody] LobbyViewModel lobby)
         {
             try
             {
@@ -83,8 +71,8 @@ namespace OOECAPI.Controllers
         [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [Consumes("application/json")]
-        [HttpPut("update")]
-        public IActionResult Edit([FromBody] Lobby lobby)
+        [HttpPost("update")]
+        public IActionResult Edit([FromBody] LobbyViewModel lobby)
         {
             try
             {
@@ -109,6 +97,19 @@ namespace OOECAPI.Controllers
             {
                 _lobbyRepository.Delete(id);
                 return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+        [Authorize(Policy = "ApiUser")]
+        [HttpGet("getLobbies/{tournamentId}")]
+        public IActionResult GetLobbies(long? tournamentId)
+        {
+            try
+            {
+                return Ok(_lobbyRepository.GetLobbies(tournamentId));
             }
             catch
             {

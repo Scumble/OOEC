@@ -5,6 +5,39 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20181205184616_sixth.cs" />
+    <Compile Remove="Migrations\20181205184616_sixth.Designer.cs" />
+    <Compile Remove="Migrations\20181205184845_seventh.cs" />
+    <Compile Remove="Migrations\20181205184845_seventh.Designer.cs" />
+    <Compile Remove="Migrations\20181205185127_eight.cs" />
+    <Compile Remove="Migrations\20181205185127_eight.Designer.cs" />
+    <Compile Remove="Migrations\20181205190535_ninth.cs" />
+    <Compile Remove="Migrations\20181205190535_ninth.Designer.cs" />
+    <Compile Remove="Migrations\20181205192034_tenth.cs" />
+    <Compile Remove="Migrations\20181205192034_tenth.Designer.cs" />
+    <Compile Remove="Migrations\20181205192111_eleven.cs" />
+    <Compile Remove="Migrations\20181205192111_eleven.Designer.cs" />
+    <Compile Remove="Migrations\20181205192236_twelve.cs" />
+    <Compile Remove="Migrations\20181205192236_twelve.Designer.cs" />
+    <Compile Remove="Migrations\20181205192339_twelve.cs" />
+    <Compile Remove="Migrations\20181205192339_twelve.Designer.cs" />
+    <Compile Remove="Migrations\20181205192443_ninth.cs" />
+    <Compile Remove="Migrations\20181205192443_ninth.Designer.cs" />
+    <Compile Remove="Migrations\20181205193232_ninth.cs" />
+    <Compile Remove="Migrations\20181205193232_ninth.Designer.cs" />
+    <Compile Remove="Migrations\20181205193321_tenth.cs" />
+    <Compile Remove="Migrations\20181205193321_tenth.Designer.cs" />
+    <Compile Remove="Migrations\20181205193356_tenth.cs" />
+    <Compile Remove="Migrations\20181205193356_tenth.Designer.cs" />
+    <Compile Remove="Migrations\20181205193423_tenth.cs" />
+    <Compile Remove="Migrations\20181205193423_tenth.Designer.cs" />
+    <Compile Remove="Migrations\20181205193710_tenth.cs" />
+    <Compile Remove="Migrations\20181205193710_tenth.Designer.cs" />
+    <Compile Remove="Migrations\20181205194424_tenth.cs" />
+    <Compile Remove="Migrations\20181205194424_tenth.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -17,6 +50,7 @@
     <PackageReference Include="RestSharp" Version="106.5.4" />
     <PackageReference Include="Swashbuckle" Version="5.6.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+    <PackageReference Include="System.IO.Ports" Version="4.5.0" />
   </ItemGroup>
 
   <ItemGroup>

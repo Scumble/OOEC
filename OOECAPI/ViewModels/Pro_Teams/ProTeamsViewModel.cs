@@ -14,5 +14,6 @@ namespace OOECAPI.ViewModels
        public int Last_Match_Time { get; set; }
        public string Name { get; set; }
        public string Tag { get; set; }  
+       public string logo_url { get; set; }
     }
 }

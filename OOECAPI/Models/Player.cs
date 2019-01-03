@@ -13,10 +13,5 @@ namespace OOECAPI.Models
         public int Age { get; set; }
         public int? TeamId { get; set; }
         public Team Team { get; set; }
-        public ICollection<GamePlayerInfo> gamePlayerInfo { get; set; }
-        public Player()
-        {
-            gamePlayerInfo = new List<GamePlayerInfo>();
-        }
     }
 }

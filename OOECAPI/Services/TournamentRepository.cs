@@ -57,6 +57,10 @@ namespace OOECAPI.Services
                     dbEntry.Place = tournament.Place;
                     dbEntry.PrizePool = tournament.PrizePool;
                     dbEntry.Type = tournament.Type;
+                    dbEntry.DateStart = tournament.DateStart;
+                    dbEntry.DateEnd = tournament.DateEnd;
+                    dbEntry.Description = tournament.Description;
+                    dbEntry.Game = tournament.Game;
                 }
             }
              _context.SaveChanges();
@@ -69,7 +73,7 @@ namespace OOECAPI.Services
             _context.SaveChanges();
         }
 
-        public Tournament Delete(long? tournamentId)
+        public Tournament Delete(int? tournamentId)
         {
             Tournament dbEntry = _context.Tournaments.Find(tournamentId);
             if (dbEntry != null)
@@ -80,7 +84,7 @@ namespace OOECAPI.Services
             return dbEntry;
         }
 
-        public Tournament GetTournamentById(long? tournamentId)
+        public Tournament GetTournamentById(int? tournamentId)
         {
             Tournament tournament = _context.Tournaments.Find(tournamentId);
             if (tournament == null)

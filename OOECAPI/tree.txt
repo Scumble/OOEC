@@ -1,0 +1,156 @@
+‘âàãªâãà  ¯ ¯®ª
+‘¥à¨©­ë© ­®¬¥à â®¬ : 000000A8 78AD:8F0C
+C:.
+³   appsettings.Development.json
+³   appsettings.json
+³   OOECAPI.csproj
+³   OOECAPI.csproj.user
+³   Program.cs
+³   Startup.cs
+³   tree.txt
+³   
+ÃÄÄÄ.idea
+³       encodings.xml
+³       misc.xml
+³       modules.xml
+³       OOECAPI.iml
+³       vcs.xml
+³       workspace.xml
+³       
+ÃÄÄÄbin
+³   ÀÄÄÄDebug
+³       ÀÄÄÄnetcoreapp2.0
+³               OOEC.API.deps.json
+³               OOEC.API.dll
+³               OOEC.API.pdb
+³               OOEC.API.runtimeconfig.dev.json
+³               OOEC.API.runtimeconfig.json
+³               OOECAPI.deps.json
+³               OOECAPI.dll
+³               OOECAPI.pdb
+³               OOECAPI.runtimeconfig.dev.json
+³               OOECAPI.runtimeconfig.json
+³               
+ÃÄÄÄControllers
+³       AccountController.cs
+³       AuthController.cs
+³       DashBoardController.cs
+³       LobbyController.cs
+³       ManageController.cs
+³       PlayerController.cs
+³       ProPlayersController.cs
+³       ProTeamsController.cs
+³       TeamController.cs
+³       TournamentController.cs
+³       ValuesController.cs
+³       
+ÃÄÄÄData
+³       Context.cs
+³       
+ÃÄÄÄExtensions
+³       ResponseExtensions.cs
+³       SwaggerServiceExtensions.cs
+³       
+ÃÄÄÄHelpers
+³       Constants.cs
+³       Errors.cs
+³       Tokens.cs
+³       
+ÃÄÄÄInterfaces
+³       IJwtFactory.cs
+³       ILobbyRepository.cs
+³       IPlayerRepository.cs
+³       IProPlayersRepository.cs
+³       IProTeamsRepository.cs
+³       ITeamRepository.cs
+³       ITournamentRepository.cs
+³       JwtFactory.cs
+³       
+ÃÄÄÄMigrations
+³       20181006172933_first.cs
+³       20181006172933_first.Designer.cs
+³       20181010122255_second.cs
+³       20181010122255_second.Designer.cs
+³       20181025123155_third.cs
+³       20181025123155_third.Designer.cs
+³       20181031132104_fourth.cs
+³       20181031132104_fourth.Designer.cs
+³       20181120135405_fifth.cs
+³       20181120135405_fifth.Designer.cs
+³       20181205194922_seventh.cs
+³       20181205194922_seventh.Designer.cs
+³       ContextModelSnapshot.cs
+³       
+ÃÄÄÄModels
+³   ³   AppUser.cs
+³   ³   Lobby.cs
+³   ³   Player.cs
+³   ³   Team.cs
+³   ³   Tournament.cs
+³   ³   User.cs
+³   ³   
+³   ÀÄÄÄEntities
+³           JwtIssuerOptions.cs
+³           
+ÃÄÄÄobj
+³   ³   OOEC.API.csproj.nuget.cache
+³   ³   OOEC.API.csproj.nuget.g.props
+³   ³   OOEC.API.csproj.nuget.g.targets
+³   ³   OOECAPI.csproj.nuget.cache
+³   ³   OOECAPI.csproj.nuget.g.props
+³   ³   OOECAPI.csproj.nuget.g.targets
+³   ³   project.assets.json
+³   ³   
+³   ÀÄÄÄDebug
+³       ÀÄÄÄnetcoreapp2.0
+³               OOEC.API.AssemblyInfo.cs
+³               OOEC.API.AssemblyInfoInputs.cache
+³               OOEC.API.csproj.CoreCompileInputs.cache
+³               OOEC.API.csproj.FileListAbsolute.txt
+³               OOEC.API.dll
+³               OOEC.API.pdb
+³               OOECAPI.AssemblyInfo.cs
+³               OOECAPI.AssemblyInfoInputs.cache
+³               OOECAPI.assets.cache
+³               OOECAPI.csproj.CoreCompileInputs.cache
+³               OOECAPI.csproj.FileListAbsolute.txt
+³               OOECAPI.csprojResolveAssemblyReference.cache
+³               OOECAPI.dll
+³               OOECAPI.pdb
+³               
+ÃÄÄÄProperties
+³       launchSettings.json
+³       
+ÃÄÄÄServices
+³       LobbyRepository.cs
+³       PlayerRepository.cs
+³       ProPlayersRepository.cs
+³       ProTeamsRepository.cs
+³       TeamRepository.cs
+³       TournamentRepository.cs
+³       
+ÃÄÄÄViewModels
+³   ³   CredentialsViewModel.cs
+³   ³   LobbyViewModel.cs
+³   ³   RegistrationViewModel.cs
+³   ³   
+³   ÃÄÄÄMappings
+³   ³       ViewModelToEntityMappingProfile.cs
+³   ³       
+³   ÃÄÄÄPro_Players
+³   ³       ProPlayerHeroesViewModel.cs
+³   ³       ProPlayerMatchesViewModel.cs
+³   ³       ProPlayersViewModel.cs
+³   ³       ProPlayerTotalsViewModel.cs
+³   ³       ProPlayerWLViewModel.cs
+³   ³       
+³   ÃÄÄÄPro_Teams
+³   ³       ProTeamMatchesViewModel.cs
+³   ³       ProTeamPlayersViewModel.cs
+³   ³       ProTeamsViewModel.cs
+³   ³       
+³   ÀÄÄÄValidations
+³           CredentialsViewModelValidator.cs
+³           RegistrationViewModelValidator.cs
+³           
+ÀÄÄÄwwwroot

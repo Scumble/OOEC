@@ -9,11 +9,11 @@ namespace OOECAPI.Interfaces
 {
     public interface ITournamentRepository
     {
-        Tournament GetTournamentById(long? tournamentId);
+        Tournament GetTournamentById(int? tournamentId);
         IEnumerable<Tournament> GetAll { get; }
         void Create(Tournament tournament);
         void Edit(Tournament tournament);
-        Tournament Delete(long? tournamentId);
+        Tournament Delete(int? tournamentId);
         Task<List<Tournament>> GetCreatedByUser();
 
     }

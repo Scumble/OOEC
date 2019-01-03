@@ -23,7 +23,7 @@ namespace OOECAPI.Controllers
         [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [HttpGet("get-tournaments-by-id/{id}")]
-        public IActionResult GetTournamentsById(long id)
+        public IActionResult GetTournamentsById(int id)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace OOECAPI.Controllers
             }
         }
 
-        [Authorize(Policy = "ApiUser")]
+       // [Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [HttpGet]
         public IActionResult Get()
@@ -79,7 +79,7 @@ namespace OOECAPI.Controllers
             }
         }
 
-        [Authorize(Policy = "ApiUser")]
+        //[Authorize(Policy = "ApiUser")]
         [Produces("application/json")]
         [Consumes("application/json")]
         [HttpPut("update")]
@@ -100,9 +100,9 @@ namespace OOECAPI.Controllers
             }
         }
 
-        [Authorize(Policy = "ApiUser")]
+       // [Authorize(Policy = "ApiUser")]
         [HttpDelete("delete/{id}")]
-        public IActionResult Delete(long id)
+        public IActionResult Delete(int id)
         {
             try
             {

@@ -37,6 +37,10 @@ namespace OOECAPI.Services
             _context.SaveChanges();
 
         }
+        public List<Player> GetPlayers(long? teamId)
+        {
+            return _context.Players.Where(x => x.TeamId == teamId).ToList();
+        }
         public void Edit(Player player)
         {
             _context.Entry(player).State =

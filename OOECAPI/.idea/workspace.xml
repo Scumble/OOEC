@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d2371a07-fab7-4336-82fc-cb76d397ce23" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.vs/OOEC/v15/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/OOEC/v15/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/OOEC/v15/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/OOEC/v15/Server/sqlite3/storage.ide" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/config/applicationhost.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OOEC/bin/Debug/netcoreapp2.0/OOEC.WebUI.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../OOEC/bin/Debug/netcoreapp2.0/OOEC.WebUI.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OOEC/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../OOEC/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/LobbyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LobbyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/TeamController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TeamController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/TournamentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TournamentController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Context.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Interfaces/ILobbyRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Interfaces/ILobbyRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Interfaces/IPlayerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Interfaces/IPlayerRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Interfaces/ITeamRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Interfaces/ITeamRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Interfaces/ITournamentRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Interfaces/ITournamentRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/GamePlayerInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Lobby.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Lobby.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Team.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Team.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Tournament.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Tournament.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOECAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/OOECAPI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/LobbyRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/LobbyRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/PlayerRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/PlayerRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/TeamRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/TeamRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/TournamentRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/TournamentRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/Mappings/ViewModelToEntityMappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Mappings/ViewModelToEntityMappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/Pro_Teams/ProTeamsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Pro_Teams/ProTeamsViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.0/OOECAPI.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.0/OOECAPI.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.0/OOECAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.0/OOECAPI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.0/OOECAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.0/OOECAPI.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.0/OOECAPI.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.0/OOECAPI.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.0/OOECAPI.csprojResolveAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.0/OOECAPI.csprojResolveAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.0/OOECAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.0/OOECAPI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.0/OOECAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.0/OOECAPI.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="260" />
+    <option name="y" value="20" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="OOECAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OOECAPI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OOECAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OOECAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OOECAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OOECAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OOECAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OOECAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="Extensions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OOECAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OOECAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="Helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OOECAPI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OOECAPI" type="462c0819:PsiDirectoryNode" />
+              <item name="Interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/TurutaLab4" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d2371a07-fab7-4336-82fc-cb76d397ce23" name="Default Changelist" comment="" />
+      <created>1545251919858</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1545251919858</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973656" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+</project>

@@ -96,5 +96,19 @@ namespace OOECAPI.Controllers
                 return BadRequest();
             }
         }
+        [Authorize(Policy = "ApiUser")]
+        [HttpGet("getTeams/{id}")]
+        public IActionResult GetTeams(int id)
+        {
+            try
+            {
+                
+                return Ok(_teamRepository.GetTeams(id));
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
     }
 }

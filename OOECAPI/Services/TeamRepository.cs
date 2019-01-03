@@ -34,12 +34,29 @@ namespace OOECAPI.Services
                  if (dbEntry != null)
                  {
                     // adding new team
-                     dbEntry.Name = team.Name;
-                     dbEntry.NumberOfPlayers = team.NumberOfPlayers;          
-                 }
+                    dbEntry.TeamName = team.TeamName;
+                    dbEntry.NumberOfPlayers = team.NumberOfPlayers;
+                    dbEntry.Tag = team.Tag;
+                }
              }
              _context.SaveChanges();
             
+        }
+        public List<Team> GetTeams(long? tournamentId)
+        {
+            var teams = (from p in _context.Teams
+                         from v in _context.Lobbies
+                         where (p.Id==v.Team_id_radiant || p.Id==v.Team_id_dire)
+                         where v.TournamentId==tournamentId
+                         select new Team()
+                         {
+                             Id = p.Id,
+                             TeamName = p.TeamName,
+                             Tag = p.Tag,
+                             NumberOfPlayers = p.NumberOfPlayers
+                         }
+                       ).Distinct().ToList();
+            return teams;
         }
         public void Edit(Team team)
         {

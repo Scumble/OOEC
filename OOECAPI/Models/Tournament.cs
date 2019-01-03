@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,18 +15,15 @@ namespace OOECAPI.Models
         public string Place { get; set; }
         public string Type { get; set; }
         public long PrizePool { get; set; }
-        public ICollection<Lobby> Lobbies { get; set; }
+        public string DateStart { get; set; }
+        public string DateEnd { get; set; }
+        public string Description { get; set; }
+        public string Game { get; set; }
+        [InverseProperty("Tournament")]
+        public virtual ICollection<Lobby> Lobbies { get; set; }
         public Tournament()
         {
             Lobbies = new List<Lobby>();
-        }
-
-        public Tournament(string place, long prizePool, string tournamentName, string type)
-        {
-            Place = place;
-            PrizePool = prizePool;
-            TournamentName = tournamentName;
-            Type = type;
         }
     }
 }

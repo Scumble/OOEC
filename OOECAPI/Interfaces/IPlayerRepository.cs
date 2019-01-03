@@ -13,5 +13,6 @@ namespace OOECAPI.Interfaces
         void Create(Player player);
         void Edit(Player player);
         Player Delete(int? playerId);
+        List<Player> GetPlayers(long? teamId);
     }
 }
